@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enciclopocchiedia — L'enciclopedia libera (quasi)</title>
+<link rel="stylesheet" href="wiki-style.css">
+</head>
+<body>
+<!-- HEADER -->
+<div id="wiki-top">
+<div id="wiki-top-inner">
+<div class="wiki-logo-wrap" onclick="navigateTo('Main')">
+<div class="wiki-logo-sphere" style="overflow:hidden;padding:0">
+  <img 
+    id="logo-dinamico" 
+    alt="Logo Enciclopocchiedia" 
+    src="logo.jpg" 
+    onerror="this.style.display='none';this.parentElement.innerHTML='🌐'" 
+    style="width:100%;height:100%;object-fit:cover;border-radius:50%"
+  />
+</div>
+
+<div class="wiki-logo-text">
+<div class="wiki-logo-title">Enciclopocchiedia</div>
+<div class="wiki-logo-sub">L'enciclopedia libera (quasi)</div>
+</div>
+</div>
+<div id="wiki-search-bar">
+<input autocomplete="off" dir="ltr" id="search-input" placeholder="Cerca su Enciclopocchiedia..." type="text"/>
+<button id="search-btn">🔍</button>
+<div id="search-results"></div>
+</div>
+<div id="wiki-top-actions">
+<button class="top-btn" onclick="window.location.href='index.html'" title="Torna alla Pocchiaciclopedia originale">🔙 Pocchiaciclopedia</button>
+<button class="top-btn" id="btn-back" onclick="goBack()" style="display:none" title="Pagina precedente">← Indietro</button>
+</div>
+</div>
+</div>
+
+<!-- LAYOUT WRAPPER -->
+<div id="wiki-layout">
+<!-- LAYOUT WRAPPER -->
+<div id="wiki-layout">
+<!-- BODY -->
+<div id="wiki-body">
+  <!-- SIDEBAR -->
+<div id="wiki-sidebar">
+  <div class="sb-section">
+    <h4>Navigazione</h4>
+    <a onclick="navigateTo('Main')">Pagina principale</a>
+  </div>
+
+  <div class="sb-section">
+    <h4>Tutte le pagine</h4>
+    <div id="sidebar-pages"></div>
+  </div>
+</div>
+<!-- ARTICLE -->
+<div id="wiki-article">
+<div id="read-view">
+<div id="article-content"></div>
+</div>
+</div>
+</div><!-- end wiki-body -->
+<!-- FOOTER -->
+<div id="wiki-footer">
+<p>Il testo è disponibile secondo la licenza <a href="#">Creative Commons</a>. Enciclopocchiedia® è un'opera di fantasia. Ogni riferimento a fatti reali è puramente coincidentale e a scopo parodistico.</p>
+<p style="margin-top:6px;font-size:11px;color:#999">⚠️ Questo è un simulatore locale — le pagine sono salvate nel browser e non online.</p>
+</div>
+</div><!-- end wiki-layout -->
+
+<script>
+// ══════════════════════════════════════════════════════
+//  DATI PAGINE — specifici di questo sito
+// ══════════════════════════════════════════════════════
+
+// Ogni pagina vive nel proprio file HTML sotto pages/<slug>.html.
+// Qui teniamo solo i metadati (titolo + categorie) per sidebar e ricerca,
+// senza dover caricare tutti i file per sapere cosa esiste. Aggiungi una
+// nuova pagina aggiungendo qui una voce e creando il file corrispondente
+// in pages/.
+const PAGE_INDEX = {
+  "Main": {
+    file: "pages/main.html",
+    title: "Enciclopocchiedia — Pagina principale",
+    categorie: ["Pagina principale", "Enciclopocchiedia"]
+  },
+  "Le Origini": {
+    file: "pages/le-origini.html",
+    title: "Le Origini",
+    categorie: ["Storia", "Preistoria", "Salento"]
+  }
+};
+</script>
+<script src="personaggi-data.js"></script>
+<script src="wiki-script.js"></script>
+</body>
+</html>
