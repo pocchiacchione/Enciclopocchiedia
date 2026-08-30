@@ -26,6 +26,13 @@ const PERSONAGGI_IMG = {
   "Alessio": "img/personaggi/alessio.jpg",
   "Ludovico": "img/personaggi/ludovico.jpg",
 
+  "Regno dei CutiCuti": "img/personaggi/regno-dei-cuticuti.jpg",
+  "Regno dei Pacci": "img/personaggi/regno-dei-pacci.jpg",
+  "Leonard Pecktris": "img/personaggi/leonard-pecktris.jpg",
+  "Dinamike": "img/personaggi/dinamike.jpg",
+  "T. Ciano": "img/personaggi/t-ciano.jpg",
+  "Braw Starls": "img/personaggi/braw-starls.jpg",
+
   // Aggiungi qui i prossimi personaggi:
   // "Nome Cognome": "img/personaggi/nome-cognome.jpg",
 };
