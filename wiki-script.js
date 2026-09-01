@@ -618,12 +618,38 @@ function ensureCharTooltip() {
   return el;
 }
 
+// Formati provati in ordine, quando quello scritto in personaggi-data.js
+// non corrisponde al file realmente presente su disco (es. è stato
+// caricato un .png ma il dato dice .jpg): così non serve tenere allineate
+// a mano le estensioni.
+const ESTENSIONI_IMG_FALLBACK = ["png", "jpg", "jpeg", "webp", "gif"];
+
+function impostaImmagineConFallback(img, percorso) {
+  const puntoIdx = percorso.lastIndexOf('.');
+  const base = puntoIdx !== -1 ? percorso.slice(0, puntoIdx) : percorso;
+  const estOriginale = puntoIdx !== -1 ? percorso.slice(puntoIdx + 1).toLowerCase() : "";
+
+  // Prova prima l'estensione dichiarata, poi le altre note, senza ripeterla.
+  const ordine = [estOriginale, ...ESTENSIONI_IMG_FALLBACK].filter((e, i, arr) => e && arr.indexOf(e) === i);
+  let tentativo = 0;
+
+  img.onerror = function () {
+    tentativo++;
+    if (tentativo < ordine.length) {
+      img.src = base + '.' + ordine[tentativo];
+    } else {
+      img.onerror = null; // nessun formato ha funzionato, ci si ferma
+    }
+  };
+  img.src = ordine.length ? (base + '.' + ordine[0]) : percorso;
+}
+
 function showCharTooltip(target, nome) {
   const map = getPersonaggiMap();
   if (!map || !map[nome]) return;
   const el = ensureCharTooltip();
   const img = el.querySelector('img');
-  img.src = map[nome];
+  impostaImmagineConFallback(img, map[nome]);
   img.alt = nome;
   el.querySelector('.ct-name').textContent = nome;
   el.classList.add('visible');
@@ -682,3 +708,4 @@ function initCharTooltipEvents() {
     }
   });
 }
+
