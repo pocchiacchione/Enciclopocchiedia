@@ -32,7 +32,9 @@ const PERSONAGGI_IMG = {
   "Dinamike": "img/personaggi/dinamike.jpg",
   "T. Ciano": "img/personaggi/t-ciano.jpg",
   "Braw Starls": "img/personaggi/braw-starls.jpg",
+  "Regno Paccutiano": "img/personaggi/regno-paccutiano.jpg",
 
   // Aggiungi qui i prossimi personaggi:
   // "Nome Cognome": "img/personaggi/nome-cognome.jpg",
 };
+
