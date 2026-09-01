@@ -497,11 +497,7 @@ function creaPaginaDelGiorno() {
                 <span style="font-family:'Source Sans 3',sans-serif; font-size:11px; color:#54595d;">${dataOggi}</span>
             </div>
             <div style="padding:14px 16px; display:flex; gap:14px; align-items:flex-start;">
-                <div style="flex-shrink:0; width:80px; height:80px; border:1px solid #eaecf0; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-                    <img src="${nomePagina.toLowerCase().replace(/\s+/g, '')}.jpg"
-                         onerror="this.parentElement.innerHTML='<span style=\\'font-size:32px\\'>📄</span>'"
-                         style="width:100%;height:100%;object-fit:cover;">
-                </div>
+                <div id="daily-box-img" style="flex-shrink:0; width:80px; height:80px; border:1px solid #eaecf0; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;"></div>
                 <div style="flex:1; min-width:0;">
                     <div style="font-family:'Linux Libertine Display',Georgia,serif; font-size:18px; margin-bottom:5px;">
                         <a onclick="navigateTo('${nomePagina.replace(/'/g, "\\'")}')" style="color:#0645ad; cursor:pointer; font-weight:normal;">${nomePagina}</a>
@@ -512,6 +508,35 @@ function creaPaginaDelGiorno() {
             </div>
         </div>
     `;
+
+    // Immagine: solo se il nome della pagina corrisponde a un personaggio
+    // noto in PERSONAGGI_IMG, con lo stesso fallback multi-formato usato
+    // nei tooltip. Altrimenti mostra subito l'icona generica.
+    const imgBox = document.getElementById('daily-box-img');
+    if (imgBox) {
+        const map = getPersonaggiMap();
+        const percorso = map ? map[nomePagina] : null;
+        if (percorso) {
+            const img = document.createElement('img');
+            img.alt = nomePagina;
+            img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+            impostaImmagineConFallback(img, percorso);
+            // impostaImmagineConFallback imposta il proprio onerror per provare
+            // le varie estensioni; quando anche l'ultima fallisce lo disattiva
+            // (onerror = null) senza mostrare nulla. Avvolgiamo quel gestore
+            // per mostrare l'emoji generica quando tutti i tentativi falliscono.
+            const provaSuccessiva = img.onerror;
+            img.onerror = function () {
+                provaSuccessiva.call(img);
+                if (img.onerror === null) {
+                    imgBox.innerHTML = '<span style="font-size:32px">📄</span>';
+                }
+            };
+            imgBox.appendChild(img);
+        } else {
+            imgBox.innerHTML = '<span style="font-size:32px">📄</span>';
+        }
+    }
 }
 
 (async function initEnciclopocchiedia() {
