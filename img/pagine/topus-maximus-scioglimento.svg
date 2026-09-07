@@ -1,0 +1,63 @@
+<svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="400" fill="#eef1f5"/>
+
+  <!-- crowd silhouettes running away -->
+  <g fill="#b9c2cf">
+    <circle cx="60" cy="330" r="10"/><rect x="52" y="335" width="16" height="34" rx="6"/>
+    <circle cx="95" cy="335" r="9"/><rect x="88" y="340" width="14" height="30" rx="6"/>
+    <circle cx="430" cy="332" r="10"/><rect x="422" y="337" width="16" height="34" rx="6"/>
+    <circle cx="460" cy="336" r="9"/><rect x="453" y="341" width="14" height="30" rx="6"/>
+  </g>
+
+  <!-- ground puddle of cheddar -->
+  <ellipse cx="250" cy="360" rx="120" ry="22" fill="#f2b134"/>
+  <ellipse cx="250" cy="356" rx="95" ry="15" fill="#f7c85c"/>
+
+  <!-- king body, mid-melt -->
+  <path d="M190 250 
+           C185 300, 175 330, 160 355
+           C230 375, 270 375, 340 355
+           C325 330, 315 300, 310 250
+           C310 250, 250 260, 190 250 Z" fill="#f2b134"/>
+
+  <!-- torso above the melt line -->
+  <rect x="205" y="180" width="90" height="80" rx="18" fill="#f4c065"/>
+
+  <!-- head -->
+  <circle cx="250" cy="150" r="48" fill="#f6d089"/>
+
+  <!-- mouse ears -->
+  <circle cx="205" cy="105" r="26" fill="#f6d089"/>
+  <circle cx="205" cy="105" r="15" fill="#e8b6c4"/>
+  <circle cx="295" cy="105" r="26" fill="#f6d089"/>
+  <circle cx="295" cy="105" r="15" fill="#e8b6c4"/>
+
+  <!-- cheddar dripping from ears -->
+  <path d="M195 122 C190 140, 200 150, 195 165 C190 178, 200 185, 196 198" stroke="#f2b134" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M305 122 C310 140, 300 150, 305 165 C310 178, 300 185, 304 198" stroke="#f2b134" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- crown -->
+  <polygon points="220,108 230,80 250,100 270,80 280,108" fill="#d9a441" stroke="#b9862f" stroke-width="2"/>
+  <circle cx="250" cy="97" r="4" fill="#e8b6c4"/>
+
+  <!-- face -->
+  <circle cx="235" cy="150" r="4" fill="#4a3b2a"/>
+  <circle cx="265" cy="150" r="4" fill="#4a3b2a"/>
+  <path d="M232 170 Q250 160 268 170" stroke="#4a3b2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="220" cy="160" rx="6" ry="4" fill="#e8b6c4" opacity="0.7"/>
+  <ellipse cx="280" cy="160" rx="6" ry="4" fill="#e8b6c4" opacity="0.7"/>
+
+  <!-- small mice approaching -->
+  <g fill="#8a8f98">
+    <ellipse cx="130" cy="345" rx="14" ry="9"/>
+    <circle cx="118" cy="340" r="6"/>
+    <line x1="130" y1="345" x2="150" y2="350" stroke="#8a8f98" stroke-width="2"/>
+  </g>
+  <g fill="#8a8f98">
+    <ellipse cx="365" cy="348" rx="14" ry="9"/>
+    <circle cx="378" cy="343" r="6"/>
+    <line x1="365" y1="348" x2="345" y2="353" stroke="#8a8f98" stroke-width="2"/>
+  </g>
+
+  <text x="250" y="30" font-family="Georgia, serif" font-size="15" fill="#666" text-anchor="middle">Raffigurazione artistica dello scioglimento di Topus Maximus</text>
+</svg>
