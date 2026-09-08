@@ -33,6 +33,7 @@ const PERSONAGGI_IMG = {
   "T. Ciano": "img/personaggi/t-ciano.jpg",
   "Braw Starls": "img/personaggi/braw-starls.jpg",
   "Regno Paccutiano": "img/personaggi/regno-paccutiano.jpg",
+  "Topus Maximus": "img/personaggi/topus-maximus.jpg",
 
   // Aggiungi qui i prossimi personaggi:
   // "Nome Cognome": "img/personaggi/nome-cognome.jpg",
